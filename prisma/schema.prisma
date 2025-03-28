@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Device {
+  id          String  @id @default(uuid()) // Unique identifier for each ESP32
+  name        String  // Friendly name (e.g., "Mailbox Sensor")
+  type        String  // Type of device (e.g., "motion_sensor", "gateway", etc.)
+  location    String? // Optional field to specify location
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  logs        Log[]
+}
+
+model Log {
+  id          String  @id @default(uuid())
+  deviceId    String
+  device      Device  @relation(fields: [deviceId], references: [id])
+  event       String  // Description of event (e.g., "motion_detected", "data_received", etc.)
+  value       String? // Optional value (e.g., "true", "temperature: 25°C")
+  createdAt   DateTime @default(now())
+}
