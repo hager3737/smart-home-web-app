@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Device {
-  id          String  @id @default(uuid()) // Unique identifier for each ESP32
+  id          String  @id  // Esp32 MAC address.
   name        String  // Friendly name (e.g., "Mailbox Sensor")
   type        String  // Type of device (e.g., "motion_sensor", "gateway", etc.)
   location    String? // Optional field to specify location

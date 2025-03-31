@@ -8,15 +8,13 @@ import { useQuery } from "@tanstack/react-query";
 import api from "@/lib/axios";
 
 export default function Dashboard() {
-  
-    const { theme } = useTheme()
 
     const { data: devices, isLoading, error } = useQuery({
         queryKey: ['devices'],
         queryFn: () => api.getAllDevices()
     });
 
-    // Loading and error handling
+    
     if (isLoading) {
         return <div>Loading...</div>;
     }
