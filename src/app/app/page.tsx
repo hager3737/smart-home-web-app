@@ -39,9 +39,15 @@ export default function Dashboard() {
         return <div>Error fetching devices.</div>;
     }
 
+    if(devices == 0) {
+        return <div className="flex flex-col items-center">
+            <h1 className="text-3xl">No devices connected yet!</h1>
+            <p>Connect your first device to get updates.</p>
+        </div>
+    }
+
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        
             {devices.map((device: any) => (
                 <Card key={device.id} className="p-4 shadow-lg rounded-2xl border border-gray-800 bg-gray-900 text-white">
                     <CardHeader>
