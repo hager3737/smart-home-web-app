@@ -48,7 +48,7 @@ export default function Dashboard() {
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-            {devices.map((device: any) => (
+            {devices?.map((device: any) => (
                 <Card key={device.id} className="p-4 shadow-lg rounded-2xl border border-gray-800 bg-gray-900 text-white">
                     <CardHeader>
                         <CardTitle className="text-lg flex justify-between">
