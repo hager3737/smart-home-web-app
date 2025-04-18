@@ -67,3 +67,7 @@ The application provides the following API routes for interacting with the data:
 - **User Profiles**: Allow users to create and manage profiles with personalized device configurations and preferences.
 
 ---
+
+## Photos
+
+![Frontend](images/image1.jpg)
